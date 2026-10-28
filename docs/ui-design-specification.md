@@ -97,4 +97,3 @@ Capture deployed screenshots at:
 - 1024 × 768
 - 768 × 1024
 - 390 × 844
-
