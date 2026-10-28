@@ -2,6 +2,8 @@
 
 A runnable React and TypeScript proof of a high-volume security operations alert console. All data is synthetic; no customer or production telemetry is used.
 
+**Live demo:** https://shreyasheoran.github.io/realtime-security-dashboard/
+
 ## Run
 
 ```bash
