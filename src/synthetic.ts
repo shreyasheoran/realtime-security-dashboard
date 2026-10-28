@@ -3,7 +3,7 @@ export interface AlertEvent { id: string; time: string; severity: Severity; rule
 
 const rules = ['Impossible travel', 'Suspicious PowerShell', 'C2 beacon pattern', 'Credential spraying', 'Data staging', 'Malware signature', 'Privilege escalation'];
 const sources = ['10.24.3.18', '172.16.8.41', '10.24.9.22', '192.168.4.7', '10.24.1.103'];
-const destinations = ['api.synthetic.local', 'files.synthetic.local', 'auth.synthetic.local', '185.199.108.153', '10.24.0.8'];
+const destinations = ['api.synthetic.local', 'files.synthetic.local', 'auth.synthetic.local', '203.0.113.20', '10.24.0.8'];
 let sequence = 0;
 
 export function makeSyntheticEvent(): AlertEvent {
