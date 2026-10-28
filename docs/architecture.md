@@ -1,13 +1,17 @@
 # Architecture
 
-## Components
+## Current implemented components
 
-- **Generator:** emits synthetic severity, asset, source and indicator events.
-- **Gateway:** transports frames over SSE or WebSocket for realistic reconnect behavior.
-- **Buffer:** applies bounded retention and batched snapshots.
-- **Store:** exposes stable read snapshots and avoids React tearing.
-- **Workspace:** renders virtualized rows, severity facets and keyboard-first triage actions.
-- **Observer:** records latency, drops, commits, frame quality and service health.
+- **Generator:** creates synthetic severity, asset, source and indicator events in the browser.
+- **Stream hook:** appends generated events to a pending queue and exposes snapshots on the documented interval.
+- **Ring buffer:** retains the newest bounded event set in React state.
+- **Workspace:** renders the alert view with filtering, selection, status actions, keyboard handlers and windowing.
+- **Live status:** communicates stream health in the browser.
+
+## Contractual future components
+
+- The gateway, reconnecting transport, replay deduplication and observer may be documented as proof targets but are not claimed as implemented browser modules without reconciliation.
+- A backend or service transport must remain outside the public synthetic boundary unless separately documented, tested and deployed.
 
 ## Failure modes
 
