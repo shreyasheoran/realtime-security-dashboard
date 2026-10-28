@@ -1,5 +1,4 @@
 import { KeyboardEvent, useMemo, useRef, useState } from 'react';
-import { AlertEvent } from './synthetic';
 import { useEventStream } from './useEventStream';
 
 const ROW_HEIGHT = 64;
@@ -7,11 +6,11 @@ const VIEW_HEIGHT = 520;
 
 export default function App() {
   const streamed = useEventStream();
-  const [events, setEvents] = useState<AlertEvent[]>(streamed);
+  const [statusOverrides, setStatusOverrides] = useState<Record<string, AlertEvent['status']>>({});
   const [selected, setSelected] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const viewport = useRef<HTMLDivElement>(null);
-  const merged = useMemo(() => streamed.length ? streamed : events, [streamed, events]);
+  const merged = useMemo(() => streamed.map(event => ({ ...event, status: statusOverrides[event.id] ?? event.status })), [streamed, statusOverrides]);
   const start = Math.max(0, Math.floor(scrollTop / ROW_HEIGHT) - 6);
   const end = Math.min(merged.length, Math.ceil((scrollTop + VIEW_HEIGHT) / ROW_HEIGHT) + 6);
 
@@ -24,7 +23,8 @@ export default function App() {
       const desired = next * ROW_HEIGHT;
       if (desired < scrollTop || desired > scrollTop + VIEW_HEIGHT - ROW_HEIGHT) viewport.current?.scrollTo({ top: desired, behavior: 'smooth' });
     } else {
-      setEvents(current => current.map((item, index) => index === selected ? { ...item, status: item.status === 'open' ? 'investigating' : item.status } : item));
+      const alert = merged[selected];
+      if (alert) setStatusOverrides(current => ({ ...current, [alert.id]: alert.status === 'open' ? 'investigating' : alert.status }));
     }
   }
 
