@@ -1,4 +1,5 @@
 import { KeyboardEvent, useMemo, useRef, useState } from 'react';
+import type { AlertEvent } from './synthetic';
 import { useEventStream } from './useEventStream';
 
 const ROW_HEIGHT = 64;
