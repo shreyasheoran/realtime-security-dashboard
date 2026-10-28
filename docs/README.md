@@ -2,11 +2,29 @@
 
 This repository treats documentation as the source of truth. No implementation is considered complete until it is specified, measured, tested, and reconciled below.
 
-## Product and requirements
+## Foundation and delivery
+- [Foundation gate](foundation-gate.md)
+- [Project brief](project-brief.md)
+- [Product requirements document](product-requirements-document.md)
 - [Product requirements](product-requirements.md)
+- [Technical design document](technical-design-document.md)
+- [Data model](data-model.md)
+- [API specification](api-specification.md)
+- [Observability and SLO design](observability-slo.md)
+- [Definition of done](definition-of-done.md)
+- [Delivery roadmap](roadmap.md)
+- [Engineering curriculum and standards](engineering-curriculum.md)
 - [Engineering principles](engineering-principles.md)
 - [Synthetic data policy](synthetic-data-policy.md)
 - [Implementation status and reconciliation](implementation-status.md)
+
+## Governance and planning
+- [RACI matrix](raci.md)
+- [Risk register](risk-register.md)
+- [Non-functional requirements scorecard](nfr-scorecard.md)
+- [Feature prioritization](feature-prioritization.md)
+- [Dependency graph](dependency-graph.md)
+- [Delivery dependency map](delivery-dependency-map.md)
 
 ## Architecture and system design
 - [Architecture overview](architecture.md)
